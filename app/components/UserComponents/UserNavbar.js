@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useUserStore } from "@/app/stores/useUserStore";
 
-function Navbar() {
+export default function UserNavbar() {
   const { user, clearUser } = useUserStore();
   const router = useRouter();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -97,4 +97,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+

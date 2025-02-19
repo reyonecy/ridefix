@@ -61,7 +61,7 @@ function VehicleDetails() {
           {vehicles.map((vehicle) => (
             <div
               key={vehicle._id}
-              className="flex justify-between p-4 border-black gap-6 bg-white rounded-lg"
+              className="flex justify-between p-4 border-black gap-6 bg-gray-200 rounded-lg"
             >
               <div>
                 <div><strong>Brand:</strong> {vehicle.brand}</div>

@@ -15,11 +15,17 @@ function ProfileDetails() {
   return (
     <div>
       <h2 className="text-2xl font-bold mb-4">Profile Details</h2>
-      <p>
+      <p className="text-xl">
         <strong>Name:</strong> {user.name}
       </p>
-      <p>
+      <p className="text-xl">
+        <strong>Email:</strong> {user.email}
+      </p>
+      <p className="text-xl">
         <strong>Phone:</strong> {user.phone}
+      </p>
+      <p className="text-xl">
+        <strong>Address:</strong> {user.address}
       </p>
     </div>
   );

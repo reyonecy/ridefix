@@ -6,7 +6,7 @@ function Home() {
   const { user } = useUserStore();
 
   return (
-    <div className="p-6">
+    <div className="flex flex-col text-center p-6">
       <h1 className="text-3xl font-bold">
         Hello, {user?.name || "User"}!
       </h1>

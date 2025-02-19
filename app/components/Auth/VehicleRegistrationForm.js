@@ -96,7 +96,8 @@ function VehicleRegistrationForm() {
               name={field}
               value={formData[field]}
               onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-md"
+              className="w-full px-4 py-2 border rounded-md outline-none "
+              required
             />
             {errors[field] && (
               <p className="text-red-500 text-sm mt-1">{errors[field]}</p>
