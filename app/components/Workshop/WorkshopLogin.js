@@ -2,12 +2,11 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { loginWorkshop } from '@/app/utils/workshopapi';
-import { useWorkshopLoginStore } from "@/app/stores/useWorkshopStore";
+import { useWorkshopLoginStore } from '@/app/stores/useWorkshopStore';
 
 export const WorkshopLoginForm = () => {
   const router = useRouter();
-  const { setWorkshop } = useWorkshopLoginStore();
+  const { login } = useWorkshopLoginStore();
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -48,17 +47,15 @@ export const WorkshopLoginForm = () => {
 
     setIsLoading(true);
     try {
-      const response = await loginWorkshop(formData);
+      const response = await login(formData);
       
-      if (!response.success) {
-        setErrors([response.message]);
-        return;
+      if (response.success) {
+        await Promise.resolve();
+        router.push('/workshop');
+        router.refresh();
+      } else {
+        setErrors(response.errors || [response.message]);
       }
-
-      // Update the global state with workshop data and token
-      setWorkshop(response.data.workshop, response.data.token);
-      router.push('/workshop');
-      
     } catch (error) {
       console.error('Login error:', error);
       setErrors(['An unexpected error occurred. Please try again.']);
