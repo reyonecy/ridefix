@@ -31,8 +31,9 @@ RideFix is a full-stack web application that connects vehicle owners with verifi
     Workshop Dashboard
 
 📸 ScreenShots
+         
+         ![Screenshot](Screenshots/landing.png)
 
-    ![Screenshot](./Screenshots/landing.png)
     ![image](https://github.com/user-attachments/assets/3064e770-f4d9-4d76-8b20-c158773a09d3)
 
 
