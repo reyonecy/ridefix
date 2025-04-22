@@ -33,8 +33,15 @@ RideFix is a full-stack web application that connects vehicle owners with verifi
 📸 ScreenShots
          
         
-        
+Landing Page        
 ![Landing Page](Screenshots/landing.png)
+
+Request Stat
+![Request Stat](Screenshots/requeststat.png)
+
+Payment
+![Payment Page](Screenshots/khalti.png)
+
 
 
 
