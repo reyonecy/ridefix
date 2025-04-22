@@ -1,23 +1,24 @@
 🚗 RideFix - Vehicle Repair Request & Workshop Management Platform
 
-RideFix is a full-stack web application that connects vehicle owners with verified repair workshops. It simplifies the process of requesting repairs, managing repair logs, tracking real-time repair progress, and securely storing related files.
+RideFix is a full-stack web application that connects vehicle owners with verified repair workshops. It simplifies the process of requesting repairs, managing repair logs, tracking real-time repair progress, securely storing related Data and make secure payments through Khalti integration.
 🔧 Key Features
 
     🧾 Submit and manage vehicle repair requests
 
     🛠 Workshops can accept, process, and update repair logs
 
-    🔐 Secure file storage using AES-256 and RSA-2048 encryption
+    🔐 Secure Data Storage
 
     📡 Real-time status tracking for ongoing repairs
 
     💬 Communication interface between users and workshops
 
-    📁 Encrypted upload/download of service documents
+    💳 Secure Payments with Khalti – Seamless and secure digital payments integrated via the Khalti API.
+
 
 🛠 Tech Stack
 
-    Frontend: Next.js, Zustand, Tailwind CSS
+    Frontend: Next.js, Zustand (for global state management), Tailwind CSS
 
     Backend: Node.js, Express.js, MongoDB
 
@@ -29,9 +30,11 @@ RideFix is a full-stack web application that connects vehicle owners with verifi
 
     Workshop Dashboard
 
+📸 ScreenShots
 
-ScreenShots
-![image](https://github.com/user-attachments/assets/0931a61f-b6e3-4acc-8508-4ecd86d0add7)
+    ![image](https://github.com/user-attachments/assets/0931a61f-b6e3-4acc-8508-4ecd86d0add7)
+    ![image](https://github.com/user-attachments/assets/3064e770-f4d9-4d76-8b20-c158773a09d3)
+
 
 
 
