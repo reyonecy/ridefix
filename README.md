@@ -7,8 +7,6 @@ RideFix is a full-stack web application that connects vehicle owners with verifi
 
     🛠 Workshops can accept, process, and update repair logs
 
-    👨‍💼 Admin approval system for workshop registration
-
     🔐 Secure file storage using AES-256 and RSA-2048 encryption
 
     📡 Real-time status tracking for ongoing repairs
@@ -23,7 +21,7 @@ RideFix is a full-stack web application that connects vehicle owners with verifi
 
     Backend: Node.js, Express.js, MongoDB
 
-    Security: Hybrid cryptography (AES-256 + RSA-2048), SHA-256 hashing
+    Security: bcrypt for  password-hashing
 
 📦 Modules
 
@@ -31,5 +29,5 @@ RideFix is a full-stack web application that connects vehicle owners with verifi
 
     Workshop Dashboard
 
-    Admin Control Panel
+
 
