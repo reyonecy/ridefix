@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+🚗 RideFix - Vehicle Repair Request & Workshop Management Platform
 
-## Getting Started
+RideFix is a full-stack web application that connects vehicle owners with verified repair workshops. It simplifies the process of requesting repairs, managing repair logs, tracking real-time repair progress, and securely storing related files.
+🔧 Key Features
 
-First, run the development server:
+    🧾 Submit and manage vehicle repair requests
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+    🛠 Workshops can accept, process, and update repair logs
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    👨‍💼 Admin approval system for workshop registration
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+    🔐 Secure file storage using AES-256 and RSA-2048 encryption
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    📡 Real-time status tracking for ongoing repairs
 
-## Learn More
+    💬 Communication interface between users and workshops
 
-To learn more about Next.js, take a look at the following resources:
+    📁 Encrypted upload/download of service documents
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🛠 Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    Frontend: Next.js, Zustand, Tailwind CSS
 
-## Deploy on Vercel
+    Backend: Node.js, Express.js, MongoDB
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    Security: Hybrid cryptography (AES-256 + RSA-2048), SHA-256 hashing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📦 Modules
+
+    User Panel
+
+    Workshop Dashboard
+
+    Admin Control Panel
+
