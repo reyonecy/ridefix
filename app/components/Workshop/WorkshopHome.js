@@ -71,11 +71,12 @@ const WorkshopHome = () => {
           {repairLogs.map((log) => (
             <li key={log._id} className="p-3 bg-gray-100 rounded shadow flex justify-between items-center">
               <div className="flex-1">
-                <p><strong>ID:</strong> {log._id}</p>
-                <p><strong>Status:</strong> {log.status}</p>
-                <p><strong>Vehicle:</strong> {log.vehicle_id}</p>
-                <p><strong>Requested Time:</strong> {log.createdAt}</p>
-                <p><strong>Issue:</strong> {log.repair_description}</p>
+                <p><strong>Name:</strong> {log.customer_name}</p>
+                <p><strong>Vehicle:</strong> {log.vehicle_make}</p>
+                <p><strong>Model:</strong> {log.vehicle_model}</p>
+                <p><strong>Repair Description:</strong> {log.repair_description}</p>
+                <p><strong>Request Time:</strong> {log.createdAt}</p>
+                
               </div>
               {log.status !== 'accepted' && (
                 <button 

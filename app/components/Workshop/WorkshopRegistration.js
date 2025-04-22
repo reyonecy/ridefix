@@ -1,8 +1,10 @@
+// components/WorkshopRegisterForm.js
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useWorkshopFormStore } from "@/app/stores/useWorkshopStore";
 import { registerWorkshop } from "@/app/utils/workshopapi";
 import { useRouter } from "next/navigation";
+
 export const WorkshopRegisterForm = () => {
   const router = useRouter();
   const {
@@ -15,27 +17,55 @@ export const WorkshopRegisterForm = () => {
     resetFormData,
   } = useWorkshopFormStore();
 
+  // Local state to handle specialization (array)
+  const [specializations, setSpecializations] = useState(formData.specialization || []);
+
+  // Validation function
   const validateInput = () => {
     const newErrors = [];
     const passwordRegex = /(?=(.*[0-9]))(?=.*[!@#$%^&*()\[\]{}\-_+=~`|:;"'<>,./?])(?=.*[a-z])(?=(.*[A-Z])).{8,}/;
 
     if (!formData.name.trim()) newErrors.push("Name is required.");
-    if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.push("Valid email is required.");
-    if (!formData.phone.trim() || !/^\d{10}$/.test(formData.phone)) newErrors.push("Valid 10-digit phone number is required.");
+    if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
+      newErrors.push("Valid email is required.");
+    if (!formData.phone.trim() || !/^\d{10}$/.test(formData.phone))
+      newErrors.push("Valid 10-digit phone number is required.");
     if (!formData.address.trim()) newErrors.push("Address is required.");
     if (!formData.pan_no.trim()) newErrors.push("PAN number is required.");
     if (!formData.reg_no.trim()) newErrors.push("Registration number is required.");
-    if (!passwordRegex.test(formData.password)) newErrors.push("Password must include one uppercase letter, one lowercase letter, one number, and one special character.");
+    if (specializations.length === 0)
+      newErrors.push("At least one specialization is required.");
+    if (!passwordRegex.test(formData.password))
+      newErrors.push(
+        "Password must include one uppercase letter, one lowercase letter, one number, and one special character."
+      );
 
     setErrors(newErrors);
     return newErrors.length === 0;
   };
 
+  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(name, value.trim());
   };
 
+  // Handle specialization checkbox changes
+  const handleSpecializationChange = (e) => {
+    const { value, checked } = e.target;
+    let updatedSpecializations = [...specializations];
+    if (checked) {
+      updatedSpecializations.push(value);
+    } else {
+      updatedSpecializations = updatedSpecializations.filter(
+        (spec) => spec !== value
+      );
+    }
+    setSpecializations(updatedSpecializations);
+    setFormData("specialization", updatedSpecializations); // Sync with store
+  };
+
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
@@ -45,10 +75,11 @@ export const WorkshopRegisterForm = () => {
 
     try {
       const response = await registerWorkshop(formData);
-      console.log('Registration response:', response);
+      console.log("Registration response:", response);
       if (response.success) {
         setSuccessMessage(response.message);
         resetFormData();
+        setSpecializations([]); // Reset local state
         router.push("/workshop/login");
       } else {
         if (response.errors) {
@@ -60,7 +91,7 @@ export const WorkshopRegisterForm = () => {
         }
       }
     } catch (err) {
-      console.error('Registration error:', err);
+      console.error("Registration error:", err);
       setErrors(["Something went wrong. Please try again later."]);
     }
   };
@@ -78,7 +109,7 @@ export const WorkshopRegisterForm = () => {
       {errors.length > 0 && (
         <ul className="list-disc list-inside text-red-500 mb-4" role="alert">
           {errors.map((error, index) => (
-            <li key={index} >{error}</li>
+            <li key={index}>{error}</li>
           ))}
         </ul>
       )}
@@ -128,7 +159,7 @@ export const WorkshopRegisterForm = () => {
             value={formData.phone}
             onChange={handleChange}
             required
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm  outline-none focus:border-black sm:text-sm"
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm outline-none focus:border-black sm:text-sm"
           />
         </div>
 
@@ -196,10 +227,31 @@ export const WorkshopRegisterForm = () => {
           />
         </div>
 
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            Specialization
+          </label>
+          {["Two Wheeler", "Four Wheeler", "Heavy Vehicle"].map((spec) => (
+            <div key={spec} className="flex items-center mt-1">
+              <input
+                type="checkbox"
+                id={spec}
+                name="specialization"
+                value={spec}
+                checked={specializations.includes(spec)}
+                onChange={handleSpecializationChange}
+                className="h-4 w-4 text-black focus:ring-black border-gray-300 rounded"
+              />
+              <label htmlFor={spec} className="ml-2 text-sm text-gray-700">
+                {spec}
+              </label>
+            </div>
+          ))}
+        </div>
+
         <button
           type="submit"
-         
-          className="w-full py-2 px-4 bg-primary-color text-white font-medium rounded-md hover:scale-105 transition-transform focus:outline-none  outline-none  "
+          className="w-full py-2 px-4 bg-primary-color text-white font-medium rounded-md hover:scale-105 transition-transform focus:outline-none outline-none"
         >
           Register
         </button>
@@ -207,3 +259,5 @@ export const WorkshopRegisterForm = () => {
     </div>
   );
 };
+
+export default WorkshopRegisterForm;

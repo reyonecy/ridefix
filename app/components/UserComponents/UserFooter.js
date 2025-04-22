@@ -7,7 +7,7 @@ export default function UserFooter() {
         <p className="text-sm">
           &copy; {new Date().getFullYear()} RideFix. All rights reserved.
         </p>
-        <p className="text-sm mt-2">
+        <p className="text-sm mt-auto">
           Powered by <span className="font-bold">RideFix Team</span>
         </p>
       </div>
