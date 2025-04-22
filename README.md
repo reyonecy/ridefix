@@ -32,7 +32,7 @@ RideFix is a full-stack web application that connects vehicle owners with verifi
 
 📸 ScreenShots
 
-    [image](https://github.com/user-attachments/assets/0931a61f-b6e3-4acc-8508-4ecd86d0add7)
+    ![Screenshot](./Images for Github Readme/Screenshot 2025-04-19 233148.png)
     ![image](https://github.com/user-attachments/assets/3064e770-f4d9-4d76-8b20-c158773a09d3)
 
 
